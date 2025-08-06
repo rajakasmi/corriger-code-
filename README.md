@@ -1,103 +1,20 @@
 
 Voici un extrait de code HTML/CSS. Peux-tu identifier et corriger tous les bogues de mise en page ou de syntaxe, notamment les erreurs de balises, fautes de frappe, problèmes de styles CSS ou incohérences d'affichage ? Assure-toi que la structure HTML soit bien formée et que le rendu visuel soit cohérent.
 # corriger-code-
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-.card {
-  width: 300px;
-  margin: 20px auto;
-  background-color: #fff;
-  box-shadow: 0 0 10px #ccc;
-  padding: 20px;
-  border-radius: 8px;
-  font-family: Arial, sans-serif;
-  text-align: left;
-}
 
-.card-title {
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
+# 💳 Reusable Pricing Card Component
 
-.card-price {
-  font-size: 18px;
-  color: green;
-  margin-bottom: 15px;
-}
+Ce projet contient un composant **HTML/CSS/JS** réutilisable pour afficher une carte de prix (`Card`). Le composant peut être utilisé pour plusieurs offres ou plans tarifaires sur un site web.
 
-.card-features {
-  list-style: none;
-  padding-left: 0;
-  margin-bottom: 20px;
-}
+## ✅ Problèmes corrigés
 
-.card-features li {
-  padding: 8px 0;
-  border-bottom: 1px solid #eee;
-}
+- ✅ Erreur de fermeture de balise `<h2>` corrigée
+- ✅ Correction de `box-shdow` → `box-shadow`
+- ✅ Amélioration du style général (padding, marges, bordures)
+- ✅ Ajout d’un comportement interactif pour le bouton
+- ✅ Refactorisation en composant JS réutilisable
 
-.card-btn {
-  background: blue;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-  font-size: 16px;
-}
+---
 
-.card-btn:hover {
-  background: darkblue;
-}
-</style>
-</head>
-<body>
+ 
 
-<!-- Réutilisable: Appel du composant -->
-<div id="app"></div>
-
-<script>
-function Card(title, price, features) {
-  const card = document.createElement('div');
-  card.className = 'card';
-
-  const cardTitle = document.createElement('h2');
-  cardTitle.className = 'card-title';
-  cardTitle.textContent = title;
-
-  const cardPrice = document.createElement('p');
-  cardPrice.className = 'card-price';
-  cardPrice.textContent = price;
-
-  const featureList = document.createElement('ul');
-  featureList.className = 'card-features';
-  features.forEach(feature => {
-    const li = document.createElement('li');
-    li.textContent = feature;
-    featureList.appendChild(li);
-  });
-
-  const button = document.createElement('button');
-  button.className = 'card-btn';
-  button.textContent = 'Start Trial';
-  button.onclick = () => alert(`Subscribed to ${title}`);
-
-  card.appendChild(cardTitle);
-  card.appendChild(cardPrice);
-  card.appendChild(featureList);
-  card.appendChild(button);
-
-  return card;
-}
-
-// Exemple d’utilisation :
-const app = document.getElementById('app');
-const basicCard = Card('Basic Plan', '$9.99 /month', ['1 GB Storage', 'Basic Support', 'All Core Features']);
-app.appendChild(basicCard);
-</script>
-
-</body>
-</html>
